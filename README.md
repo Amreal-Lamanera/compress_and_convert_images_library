@@ -7,9 +7,23 @@ And don't forget to check out my website at:
 [Francesco Pieraccini Website](https://www.francescopieraccini.it/)
 
 
+## Installation
+In your composer.json file add this:
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Amreal-Lamanera/compress_and_convert_images_library"
+        }
+    ],
+    "require": {
+        "fpdev/compress_and_convert_images": "*"
+    }
+
+
 ## Usage
 
-- Create a `CompressAndConvert` object using the constructor, which requires two 
+- Create a `CompressAndConvert` object using the constructor, which requires two
   mandatory parameters:
   
     1. `string $extension` - extension to convert
@@ -83,16 +97,6 @@ And don't forget to check out my website at:
     
     This function returns a fileArray that can be used in the `compressConvertAndSave` function, derived from the given filename. The fileArray has the format: `[filename, ext]`
 
+### License
 
-## Composer configuration
-In your composer.json file add this:
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Amreal-Lamanera/compress_and_convert_images_library"
-        }
-    ],
-    "require": {
-        "fpdev/compress_and_convert_images": "*"
-    }
+This library is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
