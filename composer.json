@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "FPDEV\\": "src/FPDEV"
+      "FPDEV\\Images\\": "src/FPDEV"
     }
   },
   "extra": {

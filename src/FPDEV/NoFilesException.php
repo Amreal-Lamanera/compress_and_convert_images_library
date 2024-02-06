@@ -1,6 +1,6 @@
 <?php
 
-namespace FPDEV;
+namespace FPDEV\Images;
 
 use \Exception;
 
