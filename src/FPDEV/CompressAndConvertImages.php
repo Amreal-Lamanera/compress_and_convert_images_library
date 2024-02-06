@@ -35,8 +35,7 @@ class CompressAndConvertImages
     public function __construct(
         string $extension,
         int $quality
-    )
-    {
+    ) {
         $this->quality = $quality;
         $this->extension = $extension;
     }
@@ -59,6 +58,7 @@ class CompressAndConvertImages
      *
      * @return array
      * @throws NoFilesException
+     * @throws NoValidFilesException
      */
     public function getFiles(string $dir): array
     {
@@ -68,7 +68,8 @@ class CompressAndConvertImages
 
         if (!$files || empty($files)) {
             throw new NoFilesException(
-                "Empty directory: {$dir}");
+                "Empty directory: {$dir}"
+            );
         }
 
         foreach ($files as $file) {
@@ -91,34 +92,39 @@ class CompressAndConvertImages
                 }
             }
         }
+
+        if (count($acceptedFiles) === 0) {
+            throw new NoValidFilesException("The directory '$dir' has no valid files.");
+        }
+
         return [$acceptedFiles, $discardedFiles];
     }
 
     /**
      * A function that utilizes ImageManager to convert and compress the file.
-     * Once completed, the compressed file will be saved in the $output_dir directory.
+     * Once completed, the compressed file will be saved in the $whereToSaveFile directory.
      *
-     * @param array $file           - [filename, ext]
-     * @param string $input_dir     - path/to/dir with original files
-     * @param string $output_dir    - path/to/dir where to put output files
+     * @param array $fileArray           - [filename, ext]
+     * @param string $whereToGetFile     - path/to/dir with original files
+     * @param string $whereToSaveFile    - path/to/dir where to put output files
      */
-    public function handleFileAndSave(
-        array $file,
-        string $input_dir,
-        string $output_dir
+    public function compressConvertAndSave(
+        array $fileArray,
+        string $whereToGetFile,
+        string $whereToSaveFile
     ) {
         // create new manager instance with desired driver
         $manager = new ImageManager(Driver::class);
 
         // read image from file system
         $image = $manager->read(
-            $input_dir . '/' . $file['filename']
+            $whereToGetFile . '/' . $fileArray['filename']
         );
 
         $file_name =
-            str_replace(".{$file['ext']}", '', $file['filename']);
+            str_replace(".{$fileArray['ext']}", '', $fileArray['filename']);
         $compressed_filepath =
-            $output_dir . "/$file_name." . $this->extension;
+            $whereToSaveFile . "/$file_name." . $this->extension;
 
         // encode img by path
         $encoded = $image->encodeByPath(
@@ -144,10 +150,10 @@ class CompressAndConvertImages
         $zip_filepath = $dirWithFiles . "/$zip_filename";
 
         if (
-        !$zip->open(
-            $zip_filepath,
-            ZipArchive::CREATE | ZipArchive::OVERWRITE
-        )
+            !$zip->open(
+                $zip_filepath,
+                ZipArchive::CREATE | ZipArchive::OVERWRITE
+            )
         ) {
             throw new Exception(
                 "ZIP file creation failed."
@@ -188,5 +194,23 @@ class CompressAndConvertImages
                 unlink($dir . '/' . $file);
             }
         }
+    }
+
+    /**
+     * Support function that returns a fileArray that can be used in the
+     * compressConvertAndSave function, derived from the given $filename.
+     * The fileArray has the format: `[filename, ext]`
+     * 
+     * @param string $filename      - string filename
+     * @return array                - fileArray
+     */
+    public function filenameToFileArray(string $filename): array
+    {
+        $file_ext = explode('.', $filename);
+        $file_ext = end($file_ext);
+        return [
+            'ext' => $file_ext,
+            'filename' => $filename
+        ];
     }
 }

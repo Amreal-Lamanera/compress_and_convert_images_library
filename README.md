@@ -23,17 +23,16 @@ And don't forget to check out my website at:
   webp format and compress them to 50% quality.
 
 
-- `handleFileAndSave` function:
+- `compressConvertAndSave` function:
 
     This function requires three mandatory parameters:
     
-    1. `array $file` - [filename, ext]
-    2. `string $input_dir` - path/to/dir with original files
-    3. `string $output_dir` - path/to/dir where to put output files
+    1. `array $fileArray` - [filename, ext]
+    2. `string $whereToGetFile` - path/to/dir with original files
+    3. `string $whereToSaveFile` - path/to/dir where to put output files
     
     This function utilizes `ImageManager` to convert and compress the file as you set in 
-    the constructor. Once completed, the converted and compressed file will be saved in the `
-    $output_dir` directory.
+    the constructor. Once completed, the converted and compressed file will be saved in the `$whereToSaveFile` directory.
 
 
 - `getFileExtAllowed` function:
@@ -75,6 +74,14 @@ And don't forget to check out my website at:
     This function deletes all the files in `$dir` except zip files and .gitkeep file.
     Call this function if you want to clean the output from all compressed images 
     but maintain the zip file.
+
+- `filenameToFileArray` function:
+
+    This function requires one mandatory parameter:
+    
+    1. `string $filename` - a filename
+    
+    This function returns a fileArray that can be used in the `compressConvertAndSave` function, derived from the given filename. The fileArray has the format: `[filename, ext]`
 
 
 ## Composer configuration
