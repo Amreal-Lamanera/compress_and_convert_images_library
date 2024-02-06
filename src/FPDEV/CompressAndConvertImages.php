@@ -1,7 +1,10 @@
 <?php
 
-use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
+namespace FPDEV;
+
+use \Intervention\Image\Drivers\Gd\Driver;
+use \Intervention\Image\ImageManager;
+
 
 /**
  * Class CompressAndConvertImages
