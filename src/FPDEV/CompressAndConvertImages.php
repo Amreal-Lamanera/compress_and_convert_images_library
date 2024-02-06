@@ -5,10 +5,8 @@ namespace FPDEV;
 use \Exception;
 use \Intervention\Image\Drivers\Gd\Driver;
 use \Intervention\Image\ImageManager;
-use \NoFilesException;
 use \ZipArchive;
 
-require_once __DIR__ . '/../exceptions/NoFilesException.php';
 
 /**
  * Class CompressAndConvertImages
