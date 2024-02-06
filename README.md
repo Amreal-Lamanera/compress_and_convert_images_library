@@ -17,7 +17,7 @@ And don't forget to check out my website at:
 
     Here's an example of how to create it:
     ```php
-    $obj = new FPDEV\CompressAndConvertImages(extension: 'webp', quality: 50);
+    $obj = new FPDEV\Images\CompressAndConvertImages(extension: 'webp', quality: 50);
     ```
     This will create an object of `CompressAndConvertImages` that can be used to convert images to 
   webp format and compress them to 50% quality.

@@ -1,6 +1,9 @@
 {
   "name": "fpdev/compress_and_convert_images",
-  "description": "Compress and convert images",
+  "description": "Library to compress and convert images",
+  "homepage": "https://github.com/Amreal-Lamanera/compress_and_convert_images_library",
+  "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "Francesco Pieraccini",
