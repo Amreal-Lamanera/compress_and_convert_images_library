@@ -1,0 +1,28 @@
+{
+  "name": "fpdev/compress_and_convert_images",
+  "description": "Compress and convert images",
+  "authors": [
+    {
+      "name": "Francesco Pieraccini",
+      "email": "francesco.pieraccini@vola.it",
+      "homepage": "https://www.francescopieraccini.it"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=8.1",
+    "singpolyma/openpgp-php": "^0.6.0",
+    "intervention/image": "*",
+    "ext-zip": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
