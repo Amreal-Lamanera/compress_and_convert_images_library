@@ -17,7 +17,7 @@ In your composer.json file add this:
         }
     ],
     "require": {
-        "fpdev/compress_and_convert_images": "*"
+        "fpdev/compress_and_convert": "*"
     }
 
 
