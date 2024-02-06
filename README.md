@@ -46,7 +46,8 @@ In your composer.json file add this:
     3. `string $whereToSaveFile` - path/to/dir where to put output files
     
     This function utilizes `ImageManager` to convert and compress the file as you set in 
-    the constructor. Once completed, the converted and compressed file will be saved in the `$whereToSaveFile` directory.
+    the constructor. Once completed, the converted and compressed file will be saved in the `$whereToSaveFile` directory
+    and the function returns the compressed file name.
 
 
 - `getFileExtAllowed` function:

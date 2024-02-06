@@ -105,11 +105,13 @@ class CompressAndConvert
 
     /**
      * A function that utilizes ImageManager to convert and compress the file.
-     * Once completed, the compressed file will be saved in the $whereToSaveFile directory.
+     * Once completed, the compressed file will be saved in the $whereToSaveFile directory
+     * and the function returns the compressed file name.
      *
      * @param array $fileArray           - [filename, ext]
      * @param string $whereToGetFile     - path/to/dir with original files
      * @param string $whereToSaveFile    - path/to/dir where to put output files
+     * @return string                    - compressed file name
      */
     public function compressConvertAndSave(
         array $fileArray,
@@ -135,6 +137,8 @@ class CompressAndConvert
             quality: $this->quality
         );
         $encoded->save($compressed_filepath);
+
+        return "$file_name." . $this->extension;
     }
 
     /**
