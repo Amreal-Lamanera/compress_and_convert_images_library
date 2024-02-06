@@ -2,9 +2,13 @@
 
 namespace FPDEV;
 
+use \Exception;
 use \Intervention\Image\Drivers\Gd\Driver;
 use \Intervention\Image\ImageManager;
+use \NoFilesException;
+use \ZipArchive;
 
+require_once __DIR__ . '/../exceptions/NoFilesException.php';
 
 /**
  * Class CompressAndConvertImages
@@ -94,7 +98,7 @@ class CompressAndConvertImages
 
     /**
      * A function that utilizes ImageManager to convert and compress the file.
-     * Once completed, the compressed file will be saved in the OUTPUT directory.
+     * Once completed, the compressed file will be saved in the $output_dir directory.
      *
      * @param array $file           - [filename, ext]
      * @param string $input_dir     - path/to/dir with original files
