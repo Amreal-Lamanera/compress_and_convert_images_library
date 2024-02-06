@@ -9,10 +9,10 @@ use \ZipArchive;
 
 
 /**
- * Class CompressAndConvertImages
+ * Class CompressAndConvert
  * @author Francesco Pieraccini
  */
-class CompressAndConvertImages
+class CompressAndConvert
 {
     private int $quality;
     private string $extension;
@@ -56,11 +56,14 @@ class CompressAndConvertImages
      *
      * @param string $dir       - path/to/dir to scan
      *
-     * @return array
+     * @return array        -   [
+     *                           $acceptedFiles = ['ext' => ext, 'filename' => filename],
+     *                           $discardedFiles = [filenames]
+     *                          ]
      * @throws NoFilesException
      * @throws NoValidFilesException
      */
-    public function getFiles(string $dir): array
+    public function getFileArraysFromDir(string $dir): array
     {
         $files = scandir($dir);
         $acceptedFiles = [];

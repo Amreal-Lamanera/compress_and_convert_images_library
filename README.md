@@ -9,7 +9,7 @@ And don't forget to check out my website at:
 
 ## Usage
 
-- Create a `CompressAndConvertImages` object using the constructor, which requires two 
+- Create a `CompressAndConvert` object using the constructor, which requires two 
   mandatory parameters:
   
     1. `string $extension` - extension to convert
@@ -17,7 +17,7 @@ And don't forget to check out my website at:
 
     Here's an example of how to create it:
     ```php
-    $obj = new FPDEV\Images\CompressAndConvertImages(extension: 'webp', quality: 50);
+    $obj = new FPDEV\Images\CompressAndConvert(extension: 'webp', quality: 50);
     ```
     This will create an object of `CompressAndConvertImages` that can be used to convert images to 
   webp format and compress them to 50% quality.
@@ -40,7 +40,7 @@ And don't forget to check out my website at:
     This is a getter function that returns the allowed file extensions.
 
 
-- `getFiles` function:
+- `getFileArraysFromDir` function:
 
     This function requires one mandatory parameter:
     
