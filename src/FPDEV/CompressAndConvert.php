@@ -117,7 +117,7 @@ class CompressAndConvert
         array $fileArray,
         string $whereToGetFile,
         string $whereToSaveFile
-    ) {
+    ): string {
         // create new manager instance with desired driver
         $manager = new ImageManager(Driver::class);
 
