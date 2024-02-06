@@ -170,7 +170,7 @@ class CompressAndConvertImages
     }
 
     /**
-     * Delete all the files in $dir excepted zip files.
+     * Delete all the files in $dir excepted zip files and .gitkeep file.
      * Call this if you want to clean the output from all compressed images,
      * but maintain the zip file.
      *

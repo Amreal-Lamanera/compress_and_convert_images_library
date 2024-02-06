@@ -72,7 +72,7 @@ And don't forget to check out my website at:
     
     1. `string $dir` - path/to/dir
     
-    This function deletes all the files in `$dir` except zip files.
+    This function deletes all the files in `$dir` except zip files and .gitkeep file.
     Call this function if you want to clean the output from all compressed images 
     but maintain the zip file.
 
