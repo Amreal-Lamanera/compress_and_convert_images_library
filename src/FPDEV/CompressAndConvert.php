@@ -131,12 +131,8 @@ class CompressAndConvert
         $compressed_filepath =
             $whereToSaveFile . "/$file_name." . $this->extension;
 
-        // encode img by path
-        $encoded = $image->encodeByPath(
-            $compressed_filepath,
-            quality: $this->quality
-        );
-        $encoded->save($compressed_filepath);
+        // save the compressed img
+        $image->save($compressed_filepath, quality: $this->quality);
 
         return "$file_name." . $this->extension;
     }
