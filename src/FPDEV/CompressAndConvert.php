@@ -36,6 +36,9 @@ class CompressAndConvert
         string $extension,
         int $quality
     ) {
+        if (!in_array($quality, self::FILE_EXT_ALLOWED)) {
+            throw new Exception("Extension not allowed: $quality");
+        }
         $this->quality = $quality;
         $this->extension = $extension;
     }
