@@ -1,4 +1,4 @@
-# Compress And Convert Images Library <a href="https://www.francescopieraccini.it/"><img src="./blue_nome.svg"  alt="FrancescoPieraccini Logo" width="75" style="vertical-align:middle; padding-left:1rem;"/></a>
+# Compress And Convert Images Library <a href="https://www.francescopieraccini.it/"><img src="./light_blue_nome.svg"  alt="FrancescoPieraccini Logo" width="75" style="vertical-align:middle; padding-left:1rem;"/></a>
 Hello there! This is my compress and convert library. It is based on the intervention/image package,
 and its goal is to help users manage images by converting and compressing them.
 
