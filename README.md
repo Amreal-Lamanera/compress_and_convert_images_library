@@ -8,17 +8,7 @@ And don't forget to check out my website at:
 
 
 ## Installation
-In your composer.json file add this:
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Amreal-Lamanera/compress_and_convert_images_library"
-        }
-    ],
-    "require": {
-        "fpdev/compress_and_convert": "*"
-    }
+    composer require fpdev/compress_and_convert
 
 
 ## Usage
